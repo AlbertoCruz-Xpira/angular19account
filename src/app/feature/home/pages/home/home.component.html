@@ -1,0 +1,8 @@
+<div *ngIf="isAuthenticated">
+  <h2>Bienvenido a la aplicación</h2>
+  <button (click)="goToDashboard()">Acceder al Dashboard</button>
+</div>
+<div *ngIf="!isAuthenticated">
+  <h2>Por favor, inicia sesión para continuar.</h2>
+  <button (click)="goToLogin()">Ir al Login</button>
+</div>

@@ -60,4 +60,27 @@ For more information on using the Angular CLI, including detailed command refere
 
 ## Extensions
 
-https://www.youtube.com/watch?v=u9Gb2IkB9bM
+https://www.youtube.com/watch?v=u9Gb2IkB9bM.
+
+##Scafolding
+
+app
+--core
+----guards
+----interceptors
+----models
+--global
+----constants
+----endpoints
+--feature
+----feature1
+------pages
+------components
+------services
+--shared
+----components
+----directives
+----pipelines
+----services
+
+assets

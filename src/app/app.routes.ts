@@ -4,11 +4,12 @@ import { RegisterComponent } from './feature/account/pages/register/register.com
 import { ForgetPasswordComponent } from './feature/account/pages/forget-password/forget-password.component';
 import { UsersListComponent } from './feature/dashboard/pages/users-list/users-list.component';
 import { AuthGuard } from './core/guards/auth.guard';
+import { HomeComponent } from './feature/home/pages/home/home.component';
 
 export const routes: Routes = [
+  { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'forget-password', component: ForgetPasswordComponent },
-  { path: 'dashboard/users-list', component: UsersListComponent, canActivate: [AuthGuard] }, // Nueva ruta
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'dashboard/users-list', component: UsersListComponent, canActivate: [AuthGuard] },
 ];
