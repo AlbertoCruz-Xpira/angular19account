@@ -8,8 +8,26 @@ export class UserService {
 
   constructor() {}
 
-  // Retorna el objeto USERS importado
+  login(email: string, password: string): string {
+    const user = USERS.find(user => user.email === email && user.password === password);
+    if (user) {
+      const token = `token-${user.email}-${new Date().getTime()}`;
+      localStorage.setItem('authToken', token); // Guardamos el token en el localStorage
+      return 'success';
+    } else {
+      return 'Invalid email or password';
+    }
+  }
+
   getUsers() {
     return USERS;
+  }
+
+  isAuthenticated(): boolean {
+    return localStorage.getItem('authToken') !== null;
+  }
+
+  logout(): void {
+    localStorage.removeItem('authToken');
   }
 }

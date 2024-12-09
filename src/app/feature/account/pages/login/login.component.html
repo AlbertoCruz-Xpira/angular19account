@@ -1,13 +1,34 @@
-<div>
-  <h2>Login</h2>
-  <form (ngSubmit)="login()">
-    <label for="email">Email</label>
-    <input id="email" type="email" [(ngModel)]="email" name="email" required />
+<div class="login-container">
+  <h2>Iniciar sesión</h2>
 
-    <label for="password">Password</label>
-    <input id="password" type="password" [(ngModel)]="password" name="password" required />
+  <p>
+    email: 'user1&#64;example.com', password: 'password1'
+  </p>
 
-    <button type="submit">Login</button>
+  <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+    <div class="form-group">
+      <label for="email">Correo electrónico</label>
+      <input type="email" id="email" name="email" [(ngModel)]="email" required class="form-control"
+        placeholder="Introduce tu correo electrónico" />
+      <div *ngIf="loginForm.controls['email']?.invalid && loginForm.controls['email']?.touched" class="error-message">
+        El correo electrónico es obligatorio.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Contraseña</label>
+      <input type="password" id="password" name="password" [(ngModel)]="password" required class="form-control"
+        placeholder="Introduce tu contraseña" />
+      <div *ngIf="loginForm.controls['password']?.invalid && loginForm.controls['password']?.touched"
+        class="error-message">
+        La contraseña es obligatoria.
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">Iniciar sesión</button>
+
+    <div *ngIf="errorMessage" class="error-message">
+      <p>{{ errorMessage }}</p>
+    </div>
   </form>
-  <p *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</p>
 </div>
