@@ -1,0 +1,25 @@
+<div class="dashboard">
+  <!-- Cabecera con el nombre de la aplicación -->
+  <header class="app-header">
+    <h1>Mi Aplicación</h1>
+    <button class="menu-btn" (click)="toggleMenu()">☰</button>
+  </header>
+
+  <!-- Menú lateral que se muestra al hacer clic en el botón de la cabecera -->
+  <div class="side-menu" [class.open]="menuOpen">
+    <ul>
+      <li *ngIf="userService.getRole() === 'admin'" (click)="navigateToUsersList()">Listado de Usuarios</li>
+      <li (click)="navigateToHome()">Ir al Inicio</li>
+      <li (click)="logout()">Cerrar sesión</li>
+    </ul>
+  </div>
+
+  <!-- Contenido principal del Dashboard -->
+  <div class="dashboard-content">
+    <h2>Bienvenido al Panel de Administración</h2>
+    <p>Aquí podrás gestionar varias opciones según tus privilegios.</p>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

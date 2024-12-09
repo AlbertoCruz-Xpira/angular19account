@@ -20,6 +20,7 @@ export class HomeComponent {
   
   ngOnInit() {
     this.isAuthenticated = this.userService.isAuthenticated();
+    if (this.isAuthenticated) this.goToDashboard();
   }
 
   goToLogin() {
@@ -27,12 +28,7 @@ export class HomeComponent {
   }
 
   goToDashboard() {
-    const role = this.userService.getRole();
-    if (role === 'admin') {
-      this.router.navigate(['/dashboard']);
-    } else {
-      alert('No tienes acceso al Dashboard, solo los administradores pueden verlo.');
-    }
+    this.router.navigate(['/dashboard']);
   }
 
 }

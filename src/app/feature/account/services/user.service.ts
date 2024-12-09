@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { User } from '../../../core/modals/user';
 import { USERS } from '../../../../assets/mockups/users';
 
 @Injectable({
@@ -30,8 +31,24 @@ export class UserService {
    * Devuelve la lista de usuarios.
    * @returns El array de usuarios
    */
-  getUsers() {
+  getUsers(): User[] {
     return USERS;
+  }
+
+  /**
+   * Obtiene el token de autenticación desde el localStorage.
+   * @returns El token si está presente, o null si no hay token.
+   */
+  getToken(): string | null {
+    return localStorage.getItem('authToken');
+  }
+
+  /**
+   * Obtiene el rol del usuario desde el localStorage.
+   * @returns El rol del usuario si está presente, o null si no hay rol.
+   */
+  getRole(): string | null {
+    return localStorage.getItem('role');
   }
 
   /**
@@ -50,19 +67,4 @@ export class UserService {
     localStorage.removeItem('role');
   }
 
-  /**
-   * Obtiene el token de autenticación desde el localStorage.
-   * @returns El token si está presente, o null si no hay token.
-   */
-  getToken(): string | null {
-    return localStorage.getItem('authToken');
-  }
-
-  /**
-   * Obtiene el rol del usuario desde el localStorage.
-   * @returns El rol del usuario si está presente, o null si no hay rol.
-   */
-  getRole(): string | null {
-    return localStorage.getItem('role');
-  }
 }

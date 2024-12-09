@@ -1,4 +1,6 @@
-export const USERS = [
+import { User } from "../../app/core/modals/user";
+
+export const USERS: User[] = [
   {
     email: 'admin@domain.com',
     password: 'password123',

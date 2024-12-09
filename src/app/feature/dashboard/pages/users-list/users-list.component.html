@@ -1,2 +1,8 @@
-<h1>Bienvenido al Dashboard</h1>
-<p>Lista de usuarios:</p>
+<div class="users-list">
+  <h2>Listado de Usuarios</h2>
+  <ul>
+    <li *ngFor="let user of users">
+      {{ user.name }} - {{ user.email }}
+    </li>
+  </ul>
+</div>
