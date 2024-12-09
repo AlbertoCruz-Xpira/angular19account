@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { USERS } from '../../../../assets/mockups/users';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  private usersUrl = 'assets/mockups/users.json';
 
-  constructor(private http: HttpClient) {}
+  constructor() {}
 
-  getUsers(): Observable<any[]> {
-    return this.http.get<any[]>(this.usersUrl);
+  // Retorna el objeto USERS importado
+  getUsers() {
+    return USERS;
   }
 }
