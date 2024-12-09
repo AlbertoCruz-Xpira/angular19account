@@ -5,6 +5,7 @@
 /tmp
 /out-tsc
 /bazel-out
+/assets/img/tutorial
 
 # Node
 /node_modules
