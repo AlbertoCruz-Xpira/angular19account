@@ -1,5 +1,17 @@
 export const USERS = [
-  { email: 'user1@example.com', password: 'password1' },
-  { email: 'user2@example.com', password: 'password2' },
-  { email: 'user3@example.com', password: 'password3' }
+  {
+    email: 'admin@domain.com',
+    password: 'password123',
+    role: 'admin',
+  },
+  {
+    email: 'employee@domain.com',
+    password: 'password456',
+    role: 'employee',
+  },
+  {
+    email: 'user@domain.com',
+    password: 'password789',
+    role: 'employee',
+  }
 ];
