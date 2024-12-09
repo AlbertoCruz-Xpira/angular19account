@@ -27,7 +27,7 @@ export class LoginComponent {
       const loginResponse = this.userService.login(this.email, this.password);
 
       if (loginResponse == 'success') {
-        this.router.navigate(['/dashboard/users-list']);
+        this.router.navigate(['/dashboard']);
         this.errorMessage = '';
       } else {
         this.errorMessage = loginResponse;

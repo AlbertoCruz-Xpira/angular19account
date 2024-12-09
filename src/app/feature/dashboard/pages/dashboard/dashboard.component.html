@@ -8,7 +8,7 @@
   <!-- Menú lateral que se muestra al hacer clic en el botón de la cabecera -->
   <div class="side-menu" [class.open]="menuOpen">
     <ul>
-      <li *ngIf="userService.getRole() === 'admin'" (click)="navigateToUsersList()">Listado de Usuarios</li>
+      <li *ngIf="role === 'admin'" (click)="navigateToUsersList()">Listado de Usuarios</li>
       <li (click)="navigateToHome()">Ir al Inicio</li>
       <li (click)="logout()">Cerrar sesión</li>
     </ul>

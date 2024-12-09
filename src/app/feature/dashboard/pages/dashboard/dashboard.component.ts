@@ -1,20 +1,26 @@
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { UserService } from '../../../account/services/user.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
-  imports: [RouterModule]
+  imports: [RouterModule, CommonModule]
 })
 export class DashboardComponent {
-  menuOpen = false;
+  menuOpen:boolean = false;
+  role!: string | null;
 
   constructor(
     private router: Router,
     private userService: UserService
   ) {}
+
+  ngOnInit() {
+    this.role = this.userService.getRole();
+  }
 
   // Método para abrir y cerrar el menú lateral
   toggleMenu() {
@@ -23,6 +29,7 @@ export class DashboardComponent {
 
   // Método para navegar al listado de usuarios (solo si es admin)
   navigateToUsersList() {
+    this.menuOpen = !this.menuOpen;
     if (this.userService.getRole() === 'admin') {
       this.router.navigate(['/dashboard/users-list']);
     } else {
@@ -32,7 +39,7 @@ export class DashboardComponent {
 
   // Método para navegar al inicio
   navigateToHome() {
-    this.router.navigate(['/home']);
+    this.router.navigate(['']);
   }
 
   // Método para cerrar sesión
